@@ -6,27 +6,4 @@
 
     <display-name>CMPE275 Lab2</display-name>
 
-    <servlet-mapping>
-        <servlet-name>lab2</servlet-name>
-        <url-pattern>/</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <servlet-name>lab2</servlet-name>
-        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-        <load-on-startup>1</load-on-startup>
-    </servlet>
-
-    <context-param>
-        <param-name>contextConfigLocation</param-name>
-        <param-value>/WEB-INF/lab2-service.xml</param-value>
-    </context-param>
-    <listener>
-        <listener-class>
-            org.springframework.web.context.ContextLoaderListener
-        </listener-class>
-    </listener>
-
-
-
 </web-app>
