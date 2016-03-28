@@ -7,7 +7,6 @@ import org.hibernate.dialect.MySQL5Dialect;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.JpaVendorAdapter;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
@@ -63,10 +62,5 @@ public class JpaConfig {
     @Bean
     public PlatformTransactionManager transactionManager() {
         return new JpaTransactionManager(entityManagerFactory().getObject());
-    }
-
-    @Bean
-    public PersistenceExceptionTranslationPostProcessor exceptionTranslator() {
-        return new PersistenceExceptionTranslationPostProcessor();
     }
 }
