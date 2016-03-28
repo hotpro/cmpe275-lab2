@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 @ComponentScan("edu.sjsu.cmpe275.lab2.service")
-public class ServiceConfiguration {
+public class ServiceConfig {
     @Bean
     public ProfileService profileService() {
         return new ProfileServiceImpl();
