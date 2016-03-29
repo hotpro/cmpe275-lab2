@@ -10,9 +10,8 @@ import javax.persistence.*;
 public class Profile {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
-    private Long id;
+    private String id;
 
     @Column(name = "FIRST_NAME")
     private String firstname;
@@ -35,7 +34,7 @@ public class Profile {
     public Profile() {
     }
 
-    public Profile(Long id, String firstname, String lastname, String email, String address, String organization, String aboutMyself) {
+    public Profile(String id, String firstname, String lastname, String email, String address, String organization, String aboutMyself) {
         this.id = id;
         this.firstname = firstname;
         this.lastname = lastname;
@@ -45,11 +44,11 @@ public class Profile {
         this.aboutMyself = aboutMyself;
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

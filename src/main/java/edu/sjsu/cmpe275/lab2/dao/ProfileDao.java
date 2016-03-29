@@ -8,7 +8,7 @@ import edu.sjsu.cmpe275.lab2.domain.Profile;
 public interface ProfileDao {
     public Profile store(Profile profile);
 
-    public Profile findById(Long id);
+    public Profile findById(String id);
 
-    public Profile delete(Long id);
+    public Profile delete(String id);
 }

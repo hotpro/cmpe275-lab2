@@ -24,13 +24,13 @@ public class JpaProfileDao implements ProfileDao {
 
     @Transactional
     @Override
-    public Profile findById(Long id) {
+    public Profile findById(String id) {
         return entityManager.find(Profile.class, id);
     }
 
     @Transactional
     @Override
-    public Profile delete(Long id) {
+    public Profile delete(String id) {
         Profile p = entityManager.find(Profile.class, id);
         entityManager.remove(p);
         return p;

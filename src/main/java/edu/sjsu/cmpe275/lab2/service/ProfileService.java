@@ -9,8 +9,8 @@ public interface ProfileService {
 
     public Profile store(Profile profile);
 
-    public Profile findById(Long id);
+    public Profile findById(String id);
 
-    public Profile delete(Long id);
+    public Profile delete(String id);
 
 }

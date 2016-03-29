@@ -20,12 +20,12 @@ public class ProfileServiceImpl implements ProfileService {
     }
 
     @Override
-    public Profile findById(Long id) {
+    public Profile findById(String id) {
         return profileDao.findById(id);
     }
 
     @Override
-    public Profile delete(Long id) {
+    public Profile delete(String id) {
         return profileDao.delete(id);
     }
 }
