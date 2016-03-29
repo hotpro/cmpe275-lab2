@@ -26,13 +26,12 @@ public class ProfileController {
                               @RequestParam(required = false) boolean brief) {
         Profile profile = profileService.findById(id);
         model.addAttribute("profile", profile);
+        model.addAttribute("readonly", true);
         return "viewProfile";
     }
 
-    @RequestMapping(method = RequestMethod.GET)
+    @RequestMapping(method = {RequestMethod.GET, RequestMethod.DELETE})
     public String setupForm(Model model) {
-//        Profile profile = new Profile(1L, "test", "test", "email", "address", "org", "about");
-//        profile = profileService.store(profile);
         Profile profile = new Profile();
         model.addAttribute("profile", profile);
         return "setupForm";
@@ -47,18 +46,25 @@ public class ProfileController {
                                         @RequestParam String email,
                                         @RequestParam String address,
                                         @RequestParam String organization,
-                                        @RequestParam String aboutmyself) {
+                                        @RequestParam String aboutMyself) {
 
-        Profile profile = new Profile(id, firstname, lastname, email, address, organization, aboutmyself);
+        Profile profile = new Profile(id, firstname, lastname, email, address, organization, aboutMyself);
+        for (int i = 0; i < 20; i++) {
+            Profile p = new Profile(String.valueOf(i), "test", "test", "email", "address", "org", "about");
+            profileService.store(p);
+        }
         profile = profileService.store(profile);
-        model.addAttribute("profile", profile);
-        return "viewProfile";
+//        model.addAttribute("profile", profile);
+//        model.addAttribute("readonly", true);
+        return "redirect:/profile/{id}";
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     public String delete(Model model, @PathVariable String id) {
         Profile profile = profileService.delete(id);
-        return "viewProfile";
+        model.addAttribute("profile", profile);
+        model.addAttribute("readonly", true);
+        return "setupForm";
     }
 
 }

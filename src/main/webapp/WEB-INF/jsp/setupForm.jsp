@@ -13,7 +13,7 @@
 </head>
 <body>
 
-<form:form method="post" modelAttribute="profile">
+<form:form id="profileForm" method="post" modelAttribute="profile">
     <table>
         <tr>
             <td>ID</td>
@@ -44,9 +44,31 @@
             <td><form:input path="aboutMyself" /></td>
         </tr>
         <tr>
-            <td colspan="3"><input type="submit" value="Create"/></td>
+            <td colspan="3"><input type="button" onclick="submitForm()" value="Create"/></td>
         </tr>
     </table>
 </form:form>
+
+<p id="demo"></p>
+
+<script>
+    function submitForm() {
+        var profileForm = document.getElementById("profileForm");
+        var action = profileForm.action + "/";
+        for (var i = 0; i < profileForm.length; i++) {
+            var e = profileForm.elements[i];
+            if (e.id == "id") {
+                action += e.value + "?";
+            } else if (e.type == "text") {
+                action += e.name + "=" + e.value + "&";
+            }
+        }
+        var newForm = document.createElement("form");
+        newForm.method = "post";
+        newForm.action = action;
+        document.body.appendChild(newForm);
+        newForm.submit();
+    }
+</script>
 </body>
 </html>
