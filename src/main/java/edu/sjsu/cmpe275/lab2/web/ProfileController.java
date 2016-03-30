@@ -53,13 +53,11 @@ public class ProfileController {
                                         @RequestParam String aboutMyself) {
 
         Profile profile = new Profile(id, firstname, lastname, email, address, organization, aboutMyself);
-        for (int i = 0; i < 20; i++) {
-            Profile p = new Profile(String.valueOf(i), "test", "test", "email", "address", "org", "about");
-            profileService.store(p);
-        }
+//        for (int i = 0; i < 20; i++) {
+//            Profile p = new Profile(String.valueOf(i), "test", "test", "email", "address", "org", "about");
+//            profileService.store(p);
+//        }
         profile = profileService.store(profile);
-//        model.addAttribute("profile", profile);
-//        model.addAttribute("readonly", true);
         return "redirect:/profile/{id}";
     }
 
