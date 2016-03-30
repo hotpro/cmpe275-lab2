@@ -6,4 +6,9 @@
 
     <display-name>CMPE275 Lab2</display-name>
 
+    <error-page>
+        <error-code>404</error-code>
+        <location>/404</location>
+    </error-page>
+
 </web-app>

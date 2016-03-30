@@ -9,7 +9,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <html>
 <head>
-    <title>Title</title>
+    <title>Create Profile</title>
 </head>
 <body>
 

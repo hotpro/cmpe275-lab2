@@ -99,4 +99,17 @@ public class Profile {
     public void setAboutMyself(String aboutMyself) {
         this.aboutMyself = aboutMyself;
     }
+
+    @Override
+    public String toString() {
+        return "Profile{" +
+                "id='" + id + '\'' +
+                ", firstname='" + firstname + '\'' +
+                ", lastname='" + lastname + '\'' +
+                ", email='" + email + '\'' +
+                ", address='" + address + '\'' +
+                ", organization='" + organization + '\'' +
+                ", aboutMyself='" + aboutMyself + '\'' +
+                '}';
+    }
 }

@@ -25,9 +25,13 @@ public class ProfileController {
                               @PathVariable String id,
                               @RequestParam(required = false) boolean brief) {
         Profile profile = profileService.findById(id);
+        if (profile == null) {
+            model.addAttribute("userId", id);
+            return "error";
+        }
         model.addAttribute("profile", profile);
         model.addAttribute("readonly", true);
-        return "viewProfile";
+        return brief ? "viewProfileBrief" : "viewProfile";
     }
 
     @RequestMapping(method = {RequestMethod.GET, RequestMethod.DELETE})
@@ -61,7 +65,13 @@ public class ProfileController {
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     public String delete(Model model, @PathVariable String id) {
-        Profile profile = profileService.delete(id);
+        Profile profile = null;
+        try {
+            profile = profileService.delete(id);
+        } catch (Exception e) {
+            model.addAttribute("userId", id);
+            return "error";
+        }
         model.addAttribute("profile", profile);
         model.addAttribute("readonly", true);
         return "setupForm";

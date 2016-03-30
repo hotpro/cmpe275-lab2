@@ -10,7 +10,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>View Profile</title>
 </head>
 <body>
 <form:form id="profileForm" method="post" modelAttribute="profile">
