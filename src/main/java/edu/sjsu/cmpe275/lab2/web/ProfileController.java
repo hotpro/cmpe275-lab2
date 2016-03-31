@@ -2,6 +2,8 @@ package edu.sjsu.cmpe275.lab2.web;
 
 import edu.sjsu.cmpe275.lab2.domain.Profile;
 import edu.sjsu.cmpe275.lab2.service.ProfileService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 @RequestMapping("/profile")
 public class ProfileController {
+    private static final Logger logger = LoggerFactory.getLogger(ProfileController.class);
 
     @Autowired
     private ProfileService profileService;
@@ -24,6 +27,7 @@ public class ProfileController {
     public String showProfile(Model model,
                               @PathVariable String id,
                               @RequestParam(required = false) boolean brief) {
+        logger.info("showProfile id: {}, brief: {}", id, brief);
         Profile profile = profileService.findById(id);
         if (profile == null) {
             model.addAttribute("userId", id);
