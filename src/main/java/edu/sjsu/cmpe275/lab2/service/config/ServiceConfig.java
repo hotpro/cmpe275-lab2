@@ -7,6 +7,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 /**
+ * Annotation based configuration
  */
 @Configuration
 @ComponentScan("edu.sjsu.cmpe275.lab2.service")

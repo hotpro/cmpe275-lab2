@@ -17,6 +17,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import javax.sql.DataSource;
 
 /**
+ * Annotation based configuration
  */
 @Configuration
 @EnableTransactionManagement

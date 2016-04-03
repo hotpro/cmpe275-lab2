@@ -22,6 +22,13 @@ public class ProfileController {
     @Autowired
     private ProfileService profileService;
 
+    /**
+     * This returns an HTML that renders the given user’s profile. The profile fields are part of an HTML form
+     * @param model
+     * @param id
+     * @param brief
+     * @return
+     */
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public String showProfile(Model model,
                               @PathVariable String id,
@@ -37,14 +44,30 @@ public class ProfileController {
         return brief ? "viewProfileBrief" : "viewProfile";
     }
 
-    @RequestMapping(method = {RequestMethod.GET, RequestMethod.DELETE})
+    /**
+     * This returns an HTML form for input the info of profile
+     * @param model
+     * @return
+     */
+    @RequestMapping(method = RequestMethod.GET)
     public String setupForm(Model model) {
         Profile profile = new Profile();
         model.addAttribute("profile", profile);
         return "setupForm";
     }
 
-
+    /**
+     * This request creates or update the profile for the given user ID.
+     * @param model
+     * @param id
+     * @param firstname
+     * @param lastname
+     * @param email
+     * @param address
+     * @param organization
+     * @param aboutMyself
+     * @return
+     */
     @RequestMapping(value = "/{id}", method = RequestMethod.POST)
     public String createOrUpdateProfile(Model model,
                                         @PathVariable String id,
@@ -64,6 +87,12 @@ public class ProfileController {
         return "redirect:/profile/{id}";
     }
 
+    /**
+     * This request deletes the profile for the given user ID.
+     * @param model
+     * @param id
+     * @return
+     */
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     public String delete(Model model, @PathVariable String id) {
         Profile profile = null;
