@@ -3,7 +3,6 @@ package edu.sjsu.cmpe275.lab2.domain;
 import javax.persistence.*;
 
 /**
- * Created by yutao on 3/23/16.
  */
 @Entity
 @Table(name = "PROFILE")

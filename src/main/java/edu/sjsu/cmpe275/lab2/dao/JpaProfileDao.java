@@ -8,7 +8,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 /**
- * Created by yutao on 3/26/16.
  */
 @Repository
 public class JpaProfileDao implements ProfileDao {

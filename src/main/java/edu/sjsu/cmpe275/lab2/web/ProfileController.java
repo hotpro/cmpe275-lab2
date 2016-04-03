@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 /**
- * Created by yutao on 3/23/16.
  */
 @Controller
 @RequestMapping("/profile")

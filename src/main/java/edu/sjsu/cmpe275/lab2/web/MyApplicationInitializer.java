@@ -6,7 +6,6 @@ import edu.sjsu.cmpe275.lab2.web.config.WebConfig;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 /**
- * Created by yutao on 3/9/16.
  */
 public class MyApplicationInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
     @Override
