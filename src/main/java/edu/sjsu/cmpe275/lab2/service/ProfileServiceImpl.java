@@ -13,6 +13,13 @@ public class ProfileServiceImpl implements ProfileService {
     @Autowired
     private ProfileDao profileDao;
 
+    public ProfileServiceImpl() {
+    }
+
+    public ProfileServiceImpl(ProfileDao profileDao) {
+        this.profileDao = profileDao;
+    }
+
     @Override
     public Profile store(Profile profile) {
         return profileDao.store(profile);
